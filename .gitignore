@@ -6,6 +6,7 @@
 # User-specific stuff:
 .idea/*
 log
+gocron.conf
 .idea/jsLibraryMappings.xml
 
 # Sensitive or high-churn files:

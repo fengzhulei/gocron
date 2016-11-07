@@ -15,7 +15,7 @@ import (
 
 type Job struct {
 	Id              int
-	Name, Time, Cmd string
+	Name, Spec, Cmd string
 	STime, ETime    string
 	Status          int8
 	Running         int8
@@ -53,7 +53,6 @@ func init() {
 func GetCronList() ( []Job,  error) {
     ut := time.Now().Format("2006-01-02 15:04:05")
     var jobs []Job
-    fmt.Print(ut)
     _,err := db.Raw("SELECT * FROM cron where status = 1 and stime < ? and etime > ?", ut, ut).FetchRows(&jobs)
     if err != nil {
         panic(err.Error())

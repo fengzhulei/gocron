@@ -19,7 +19,7 @@ func main() {
     //添加jobs
     for i := 0; i < len(jobs); i++ {
         job := jobs[i]
-        err := c.AddFunc(job.Time, func() {jobrun(job)}, int(job.Status), int(job.Id), job.STime, job.ETime)
+        err := c.AddFunc(job.Spec, func() {jobrun(job)}, int(job.Status), int(job.Id), job.STime, job.ETime)
         if err  != nil{
             log.Error(err.Error())
         }
@@ -36,7 +36,7 @@ func main() {
             case <-time.After(time.Second):
                 jobs, _ := mycron.GetModifyList()
                 for _,job:= range jobs{
-                    err := c.AddFunc(job.Time, func() {jobrun(job)}, int(job.Status), int(job.Id), job.STime, job.ETime)
+                    err := c.AddFunc(job.Spec, func() {jobrun(job)}, int(job.Status), int(job.Id), job.STime, job.ETime)
                     if err  != nil{
                         log.Error(err.Error())
                     }

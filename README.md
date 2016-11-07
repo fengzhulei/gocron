@@ -10,8 +10,6 @@
 
 - 支持立即执行调试job
 
-- 支持一个job同时多个进程跑，和支持各个进程状态监控
-
 - 支持*nux 和 windows  脚本入口命令分别是 shell -c  和  cmd /c
 
 ##Tables
